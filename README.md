@@ -4,4 +4,4 @@
 **YouTube Video Link:** https://www.youtube.com/MyAmazingAPP <br>
 **APIs:** Finnhub Stock API (https://finnhub.io/)<br>
 **Contact Email:**  syu212@terpmail.umd.edu <br>
-**Deployed App Link:** https://notreal.what.terpNel/myApp <br>
+**Deployed App Link:** https://marketscope-sj.onrender.com/ <br>
