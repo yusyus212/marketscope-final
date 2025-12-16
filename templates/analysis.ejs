@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Analysis</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <div id="part1">
+        <h1>Stock Analysis Result</h1>
+    </div>
+
+    <div id="part2">
+        
+        <div id="inner1" style="height: 100px;">
+            <h2>Company Info</h2>
+            <p>
+                <% if (profile.logo) { %>
+                    <img src="<%= profile.logo %>" style="width: 30px; vertical-align: middle;"> 
+                <% } %>
+                <strong><%= profile.name %></strong> (<%= symbol %>)
+            </p>
+            <p>Industry: <%= profile.finnhubIndustry %></p>
+        </div>
+
+        <div id="inner2" style="top: 140px; height: 100px;">
+            <h2>Price Data</h2>
+            <p>Current Price: <strong>$<%= price.c %></strong></p>
+            <p>Change: <%= price.d %> (<%= price.dp %>%)</p>
+        </div>
+
+        <div id="inner3" style="top: 260px; height: 80px;">
+            <h2>Actions</h2>
+            <form action="/processSave" method="POST">
+                <input type="hidden" name="symbol" value="<%= symbol %>">
+                <input type="hidden" name="companyName" value="<%= profile.name %>">
+                <input type="hidden" name="price" value="<%= price.c %>">
+                <p>
+                    <button type="submit">Save to Watchlist</button>
+                </p>
+            </form>
+        </div>
+
+    </div>
+
+    <div id="footer">
+        <a href="/">Return Home</a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Watchlist</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <div id="part1">
+        <h1>My Stock Watchlist</h1>
+    </div>
+
+    <div id="part2">
+        
+        <div id="inner3" style="top: 20px; height: 350px;">
+            <h2>Saved Stocks</h2>
+            
+            <% if (stocks.length === 0) { %>
+                <p>No stocks saved.</p>
+            <% } else { %>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Symbol</th>
+                            <th>Company</th>
+                            <th>Price</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% stocks.forEach(function(stock) { %>
+                            <tr>
+                                <td><%= stock.symbol %></td>
+                                <td><%= stock.companyName %></td>
+                                <td>$<%= stock.price %></td>
+                                <td>
+                                    <form action="/processRemove" method="POST">
+                                        <input type="hidden" name="symbol" value="<%= stock.symbol %>">
+                                        <button type="submit">Del</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            <% } %>
+        </div>
+
+        <div style="position: absolute; top: 400px; left: 20px;">
+            <form action="/processClear" method="POST">
+                <button type="submit">Clear All</button>
+            </form>
+        </div>
+
+    </div>
+
+    <div id="footer">
+        <a href="/">Return Home</a>
+    </div>
+
+</body>
+</html>
